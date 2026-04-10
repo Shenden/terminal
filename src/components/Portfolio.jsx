@@ -1,7 +1,8 @@
-import { Activity, useState } from "react";
+import { useState } from "react";
 import { Wrapper } from "./Wrapper";
 import { List } from "./List";
 import { Portfoliodata } from "../Portfoliodata";
+import { motion } from "framer-motion";
 
 export const Portfolio = () => {
   // consts adding some effects to the rendered div
@@ -37,7 +38,14 @@ export const Portfolio = () => {
       <Wrapper
         className="wrapper"
         lists={
-          <ul className="main-nav">
+          <motion.ul
+            variants={{
+              visible: { transition: { staggerChildren: 0.4 } },
+            }}
+            initial="hidden"
+            animate="visible"
+            className="main-nav"
+          >
             <List
               targetClass="info-dimensional-active"
               listTitle="Interdimensional"
@@ -62,11 +70,22 @@ export const Portfolio = () => {
               handleEnter={handleShowElem}
               handleLeave={handleRemoveElem}
             />
-          </ul>
+          </motion.ul>
         }
       >
         {activeItem && (
-          <div
+          <motion.div
+            // to be used with animationpresence wrapped exit={{ opacity: 0, transition: { duration: 0.071 } }}
+            variants={{
+              hidden: { scale: 1.4 },
+              visible: {
+                scale: 1,
+                transition: { duration: 0.15 },
+              },
+            }}
+            initial="hidden"
+            animate="visible"
+            //exit={{ opacity: 1, scale: 1 }}
             className={`info ${showElement.findClass}`}
             style={{
               animationDuration: `${randomDuration}s`,
@@ -82,7 +101,7 @@ export const Portfolio = () => {
               <h4>A {activeItem.title} story... </h4>
               <p>{activeItem.text}</p>
             </div>
-          </div>
+          </motion.div>
         )}
       </Wrapper>
     </>

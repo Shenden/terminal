@@ -25,7 +25,7 @@ export const List = ({ targetClass, listTitle, handleEnter, handleLeave }) => {
     <li>
       <a
         href="#"
-        onMouseEnter={() => handleEnter(targetClass, listTitle)}
+        onMouseEnter={() => handleEnter(targetClass, listTitle)} //pass on the props
         onMouseLeave={handleLeave}
       >
         {title}
