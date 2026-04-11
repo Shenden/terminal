@@ -77,7 +77,7 @@ export const Portfolio = () => {
           <motion.div
             // to be used with animationpresence wrapped exit={{ opacity: 0, transition: { duration: 0.071 } }}
             variants={{
-              hidden: { scale: 1.6 },
+              hidden: { scale: 1.5 },
               visible: {
                 scale: 1,
                 transition: { duration: 0.15 },
