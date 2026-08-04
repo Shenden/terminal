@@ -93,7 +93,9 @@ export const Portfolio = () => {
             }}
           >
             <header>
-              <div className="icon-wrap">{Icon && <Icon />}</div>
+              <div className="icon-wrap">
+                {Icon ? <Icon /> : "icon missing"}
+              </div>
               <h2>{activeItem.title}</h2>
               <div></div>
             </header>
